@@ -1,3 +1,4 @@
+const _ = require('lodash')
 const Joi = require('joi')
 const uuid = require('uuid')
 
@@ -26,7 +27,14 @@ module.exports = function(type) {
             method: 'GET',
             path: `/${type}`,
             handler: (request, reply) => {
-                reply(db.value())
+                let query = new RegExp(_.escapeRegExp(request.query.q), 'i')
+                let page = request.params.page || 0
+                let pageSize = request.params.pageSize || 10
+                let result = db
+                    .filter(i => contains(i, query))
+                    .slice(page * pageSize, pageSize)
+                    .value()
+                reply(result)
             }
         }, {
             method: 'GET',
@@ -61,4 +69,15 @@ module.exports = function(type) {
             }
         }
     ]
+}
+
+function contains(object, regex) {
+    if (_.isString(object)) {
+        return object.match(regex)
+    } else if (_.isArray(object)) {
+        return _.some(object, it => contains(it, regex))
+    } else if (_.isObject(object)) {
+        let keys = _.keys(object)
+        return _.some(keys, key => contains(object[key], regex))
+    }
 }

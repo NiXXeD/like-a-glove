@@ -1,0 +1,21 @@
+<div id="search">
+    <md-autocomplete
+            md-autoselect="true"
+            md-select-on-match="false"
+            md-selected-item="$ctrl.selectedItem"
+            md-search-text="$ctrl.searchText"
+            md-selected-item-change="$ctrl.selectedItemChange(item)"
+            md-items="item in $ctrl.performQuery($ctrl.searchText)"
+            md-min-length="2"
+            md-item-text="item.name"
+            placeholder="Search">
+        <md-item-template>
+            <div>
+                <md-icon>{{item.icon}}</md-icon>
+                <span md-highlight-text="$ctrl.searchText" md-highlight-flags="gi">
+                    {{item.name}}
+                </span>
+            </div>
+        </md-item-template>
+    </md-autocomplete>
+</div>
