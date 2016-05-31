@@ -9,4 +9,9 @@ module.exports = class DataService {
         return this.$http.get(`http://localhost:1701/games${suffix}`)
             .then(result => result.data)
     }
+    
+    getGame(id) {
+        return this.$http.get(`http://localhost:1701/games/${id}`)
+            .then(result => result.data)
+    }
 }

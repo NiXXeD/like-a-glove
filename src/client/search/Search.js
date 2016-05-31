@@ -4,8 +4,8 @@ module.exports = {
     template: require('./search.html'),
     controller: class Search {
         /* @ngInject */
-        constructor($q, dataService) {
-            this.$q = $q
+        constructor($location, dataService) {
+            this.$location = $location
             this.dataService = dataService
         }
 
@@ -15,7 +15,7 @@ module.exports = {
 
         selectedItemChange(item) {
             if (item) {
-                console.log('You picked', item)
+                this.$location.url(`games/${item.id}`)
             }
             this.searchText = null
         }

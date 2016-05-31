@@ -1,0 +1,23 @@
+<md-toolbar id="pageHeader">
+    <span>Game Detail</span>
+</md-toolbar>
+
+<md-card class="gameCard">
+    <md-card-title>
+        <md-card-title-text class="md-headline" >
+            <span class="md-headline" ng-bind="$ctrl.game.name"></span>
+            <span class="md-subhead">{{$ctrl.game.cards.length + ' card types'}}</span>
+        </md-card-title-text>
+    </md-card-title>
+
+    <md-card-content>
+        <p ng-repeat="card in $ctrl.game.cards">
+            <b>{{card.count}}</b><span> * {{card.width}}mm x {{card.height}}mm</span>
+        </p>
+    </md-card-content>
+
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button>Action 1</md-button>
+        <md-button>Action 2</md-button>
+    </md-card-actions>
+</md-card>

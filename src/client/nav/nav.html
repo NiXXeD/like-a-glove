@@ -1,10 +1,12 @@
-<!-- page loading indicator -->
-<md-progress-linear id="navLoading"
-                    ng-show="$ctrl.loading"
-                    class="md-accent"
-                    md-mode="indeterminate">
-</md-progress-linear>
-
-<md-toolbar id="navbar">
-    <search></search>
+<!-- top bar -->
+<md-toolbar id="navbar" layout="row" layout-align="start center">
+    <md-button class="md-icon-button" ng-click="$ctrl.$mdSidenav('left').open()">
+        <md-icon>menu</md-icon>
+    </md-button>
+    <search flex></search>
 </md-toolbar>
+
+<!-- sidenav -->
+<md-sidenav md-component-id="left">
+    wee
+</md-sidenav>
