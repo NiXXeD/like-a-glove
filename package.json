@@ -1,0 +1,26 @@
+{
+  "name": "like-a-glove",
+  "version": "0.0.0",
+  "description": "Web utilities for helping organize tabletop games.",
+  "main": "index.js",
+  "author": "Andy Christianson",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "nodemon ./src/server/index"
+  },
+  "dependencies": {
+    "good": "^7.0.1",
+    "good-console": "^6.1.2",
+    "good-squeeze": "^3.0.1",
+    "hapi": "^13.4.1",
+    "joi": "^8.2.1",
+    "lodash": "^4.13.1",
+    "lowdb": "^0.13.0-beta-5",
+    "osmosis": "^1.0.1",
+    "require-directory": "^2.1.1",
+    "uuid": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
